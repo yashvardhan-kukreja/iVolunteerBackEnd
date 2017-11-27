@@ -5,21 +5,17 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    "heroku-postbuild": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.3",
-    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "mongoose": "^4.11.11",
     "morgan": "^1.9.0",
-    "nodemailer": "^4.1.0",
-    "twilio": "^3.6.7"
+    "nodemailer": "^4.1.0"
   },
   "engines": {
     "node": "8.1.2"
