@@ -80,7 +80,7 @@ router.post('/addvol', function(req, res){
                 console.log("Event doesn't exist");
                 res.json({Success:0, message:"Event doesn't exist"});
             } else {
-                if (event.maximumCapacity == 5) {
+                if (event.maximumCapacity <= event.registeredvol.length) {
                     res.json({success: 0, message: "Volunteer capacity exceeded"});
                 } else {
                     Volunteer.findVolByEmail(volemail, function(err, vol){
