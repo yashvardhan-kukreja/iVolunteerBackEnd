@@ -219,7 +219,7 @@ router.post('/register', function (req, res) {
         email: req.body.email,
         password: req.body.password
     });
-    if (volunteer.firstName == "" || volunteer.lastName == null || volunteer.age == null || volunteer.address == "" || volunteer.address == null || volunteer.locality == "" || volunteer.locality == null || volunteer.phonenum == "" || volunteer.phonenum == null || volunteer.email == "" || volunteer.email == null || volunteer.password == "" || volunteer.password == null) {
+    if (false) {
         res.json({Success: 0, message: "Please enter all the details"});
     } else {
         Volunteer.findVolByEmail(volunteer.email, function (err, volexists) {
