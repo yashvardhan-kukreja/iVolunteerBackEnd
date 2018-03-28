@@ -12,6 +12,10 @@ var EventSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    maximumCapacity: {
+        type: Number,
+        default: 5
+    },
     hostingngo:{
         type:String,
         required: true

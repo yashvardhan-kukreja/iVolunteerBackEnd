@@ -80,27 +80,31 @@ router.post('/addvol', function(req, res){
                 console.log("Event doesn't exist");
                 res.json({Success:0, message:"Event doesn't exist"});
             } else {
-                Volunteer.findVolByEmail(volemail, function(err, vol){
-                    if (err){
-                        console.log(err);
-                        res.json({Success:0, message:"An error occured"});
-                    } else {
-                        if (!vol){
-                            console.log("Volunteer doesn't exist");
-                            res.json({Success:0, message:"Volunteer doesn't exist"});
+                if (event.maximumCapacity == 5) {
+                    res.json({success: false, message: "Volunteer capacity exceeded"});
+                } else {
+                    Volunteer.findVolByEmail(volemail, function(err, vol){
+                        if (err){
+                            console.log(err);
+                            res.json({Success:0, message:"An error occured"});
                         } else {
-                            Event.addVolToEvent(vol.email, event, function(err){
-                                if (err){
-                                    console.log(err);
-                                    res.json({Success:0, message:"An error occured"});
-                                } else {
-                                    console.log("Volunteer added to the event");
-                                    res.json({Success:1, message:"Volunteer added to the event"});
-                                }
-                            });
+                            if (!vol){
+                                console.log("Volunteer doesn't exist");
+                                res.json({Success:0, message:"Volunteer doesn't exist"});
+                            } else {
+                                Event.addVolToEvent(vol.email, event, function(err){
+                                    if (err){
+                                        console.log(err);
+                                        res.json({Success:0, message:"An error occured"});
+                                    } else {
+                                        console.log("Volunteer added to the event");
+                                        res.json({Success:1, message:"Volunteer added to the event"});
+                                    }
+                                });
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
     });
