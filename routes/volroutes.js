@@ -111,9 +111,6 @@ router.post('/addevent', function (req, res) {
                             console.log("No such event exists");
                             res.json({Success: 0, message: "No such event exists"});
                         } else {
-                            if (eventsExists.maximumCapacity == 5) {
-                                res.json({success: 0, message: "Volunteer capacity exceeded"})
-                            }
                             Volunteer.addEventToVol(eventExists, email, function (err) {
                                 if (err) {
                                     console.log(err);
@@ -138,7 +135,7 @@ router.post('/addevent', function (req, res) {
                                                     console.log("Event registered to the volunteer successfully");
                                                     res.json({
                                                         Success: 1,
-                                                        message: "Congratulations! You are a part of a good event"
+                                                        message: "Volunteer capacity exceeded"
                                                     });
                                                 }
                                             });
