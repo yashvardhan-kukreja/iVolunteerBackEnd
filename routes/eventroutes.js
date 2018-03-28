@@ -98,7 +98,7 @@ router.post('/addvol', function(req, res){
                                         res.json({Success:0, message:"An error occured"});
                                     } else {
                                         console.log("Volunteer added to the event");
-                                        res.json({Success:1, message:"Volunteer added to the event"});
+                                        res.json({Success:1, message:"Volunteer capacity exceeded"});
                                     }
                                 });
                             }
