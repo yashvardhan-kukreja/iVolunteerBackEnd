@@ -135,7 +135,7 @@ router.post('/addevent', function (req, res) {
                                                     console.log("Event registered to the volunteer successfully");
                                                     res.json({
                                                         Success: 1,
-                                                        message: "Volunteer capacity exceeded"
+                                                        message: "Congratulations! You are a part of a good event"
                                                     });
                                                 }
                                             });
